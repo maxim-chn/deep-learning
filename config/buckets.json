@@ -1,3 +1,5 @@
 {
-  "unpreprocessed": "data-unprocessed"
+  "unpreprocessed": {
+    "name": "data-unprocessed"
+  }
 }
