@@ -1,0 +1,26 @@
+{
+  "id": "confident-trail-426114-e6",
+  "buckets": {
+    "preprocessed": {
+      "name": "data-preprocessed",
+      "test": {
+        "name": "test"
+      },
+      "train": {
+        "name": "train"
+      }
+    },
+    "unpreprocessed": {
+      "name": "data-unpreprocessed"
+    }
+  },
+  "machine": {
+    "batch_size": 2,
+    "tasks_number": "<REPLACE_WITH_CPU_NUM>"
+  },
+  "model_input": {
+    "height": "128",
+    "type": "png",
+    "width": "128"
+  }
+}
