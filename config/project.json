@@ -22,6 +22,8 @@
     "height": 128,
     "te_image_to_tr_images": 2,
     "type": "png",
+    "noise_mean": 127,
+    "noised_std": 100,
     "width": 128
   }
 }
