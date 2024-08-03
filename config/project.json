@@ -19,6 +19,7 @@
     "tasks_number": "<REPLACE_WITH_CPU_NUM>"
   },
   "model_input": {
+    "color_channels": 3,
     "height": 128,
     "te_image_to_tr_images": 2,
     "type": "png",
