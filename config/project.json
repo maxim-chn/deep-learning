@@ -2,12 +2,22 @@
   "id": "confident-trail-426114-e6",
   "buckets": {
     "preprocessed": {
-      "name": "data-preprocessed",
-      "test": {
-        "name": "test"
+      "classic": {
+        "test": {
+          "name": "test-classic"
+        },
+        "train": {
+          "name": "train-classic"
+        }
       },
-      "train": {
-        "name": "train"
+      "name": "data-preprocessed",
+      "noise_framed": {
+        "test": {
+          "name": "test-noise-framed"
+        },
+        "train": {
+          "name": "train-noise-framed"
+        }
       }
     },
     "unpreprocessed": {
