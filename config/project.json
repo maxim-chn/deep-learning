@@ -25,7 +25,7 @@
     }
   },
   "machine": {
-    "batch_size": 200,
+    "batch_size": 20,
     "tasks_number": "<REPLACE_WITH_CPU_NUM>"
   },
   "model_input": {
