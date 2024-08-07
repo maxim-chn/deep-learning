@@ -1,5 +1,10 @@
 # Custom
 .DS_store
+credentials/*
+!credentials/README.md
+image_abyss/*
+!image_abyss/README.md
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
