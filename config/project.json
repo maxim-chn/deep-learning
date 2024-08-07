@@ -24,15 +24,20 @@
       "name": "data-unpreprocessed"
     }
   },
+  "git": {
+    "local_images_dir": "image_abyss"
+  },
   "machine": {
     "batch_size": 50,
-    "tasks_number": "<REPLACE_WITH_CPU_NUM>"
+    "tasks_number": "<REPLACE_WITH_CPU_NUM>",
+    "std_output_threshold": 100
   },
   "model_input": {
     "color_channels": 3,
     "height": 128,
     "te_image_to_tr_images": 100,
     "type": "png",
+    "original_images_format": [".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff"],
     "noise_mean": 127,
     "noise_std": 100,
     "width": 128
