@@ -1,0 +1,1 @@
+Use this directory to store credentials that grant access to resources, such as buckets in `Google Cloud Services`.
