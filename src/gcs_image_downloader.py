@@ -13,6 +13,15 @@ GIT = project_config["git"]
 STD_OUTPUT_THRESHOLD = project_config["machine"]["std_output_threshold"]
 TARGET_IMAGE_NUMBER = 1
 
+def count_images_in_gcs(bucket_name, bucket_directory):
+  client = storage.Client()
+  bucket = client.get_bucket(bucket_name)
+  blobs = bucket.list_blobs(prefix=bucket_directory)
+  count = 0
+  for blob in blobs:
+    count += 1
+  print(f"There are {count} in {bucket_name}/{bucket_directory}")
+
 def convert_bytes_to_image(data_bytes: bytes) -> Image:
   return Image.open(BytesIO(data_bytes))
 
@@ -32,4 +41,5 @@ def download_images_from_gcs(bucket_name, bucket_directory, target_folder):
       break
 
 if __name__ == "__main__":
-  download_images_from_gcs(BUCKETS["preprocessed"]["name"], BUCKETS["preprocessed"]["classic"]["test"]["name"], os.path.join(".", GIT["local_images_dir"]))
+  # download_images_from_gcs(BUCKETS["preprocessed"]["name"], BUCKETS["preprocessed"]["classic"]["test"]["name"], os.path.join(".", GIT["local_images_dir"]))
+  count_images_in_gcs(BUCKETS["preprocessed"]["name"], BUCKETS["preprocessed"]["noise_framed"]["train"]["name"])
