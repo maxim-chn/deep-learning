@@ -1,7 +1,7 @@
 # Architecture overview
 ![image-architecture](assets/architecture_overview.png)
 
-# Artifacts overview
+# Artefacts overview
 Directory `assets` is expected to include any resource that is non-code related. For example, images that assist in project description.
 
 Directory `config` is expected to include files with configurations for runtime environment, various source and target destinations,

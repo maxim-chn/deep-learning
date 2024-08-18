@@ -1,9 +1,12 @@
 # Custom
 .DS_store
+.vscode/
 credentials/*
 !credentials/README.md
 image_abyss/*
 !image_abyss/README.md
+image_test/*
+!image_test/README.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
