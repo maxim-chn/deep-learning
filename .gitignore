@@ -1,5 +1,6 @@
 # Custom
 .DS_store
+.vscode/
 credentials/*
 !credentials/README.md
 image_abyss/*
