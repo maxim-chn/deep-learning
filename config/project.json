@@ -3,20 +3,25 @@
   "buckets": {
     "preprocessed": {
       "classic": {
-        "test": {
-          "name": "test-classic"
-        },
         "train": {
           "name": "train-classic"
         }
       },
       "name": "data-preprocessed",
       "noise_framed": {
-        "test": {
-          "name": "test-noise-framed"
-        },
         "train": {
           "name": "train-noise-framed"
+        }
+      },
+      "test": {
+        "distorted": {
+          "name": "test-distorted"
+        },
+        "original": {
+          "name": "test-original-resolution"
+        },
+        "novel": {
+          "name": "test-novel-resolution"
         }
       }
     },
@@ -35,11 +40,26 @@
   "model_input": {
     "color_channels": 3,
     "height": 128,
-    "te_image_to_tr_images": 100,
-    "type": "png",
-    "original_images_format": [".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff"],
     "noise_mean": 127,
     "noise_std": 100,
+    "original_images_format": [".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff"],
+    "te_image_to_tr_images": 100,
+    "type": "png",
     "width": 128
+  },
+  "model_test": {
+    "distorted": {
+      "number": 100
+    },
+    "minimized": {
+      "height": 32,
+      "number": 100,
+      "width": 32
+    },
+    "novel": {
+      "height": 256,
+      "number": 100,
+      "width": 256
+    }
   }
 }
