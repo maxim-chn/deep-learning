@@ -5,8 +5,12 @@ credentials/*
 !credentials/README.md
 image_abyss/*
 !image_abyss/README.md
-image_test/*
-!image_test/README.md
+image_test_distorted/*
+!image_test_distorted/README.md
+image_test_novel/*
+!image_test_novel/README.md
+image_test_original/*
+!image_test_original/README.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
