@@ -20,5 +20,10 @@ We suggest to initialize `Python venv` prior to installing required modules and 
 The following modules are required for scripts, such as images uploader/downloader to and from `GCS buckets`:
 * `google-cloud-storage`
 * `pillow`
+* `skimage`
+* `torch`
+* `torchvision`
 
 The notebooks, for example `preprocessor.ipynb`, are expected to run in environments like `Google Colab`. Hence, their code is written under this assumption.
+
+The scripts related to model training are named _without_ `gcs` prefix. They are expected to run on the machine with access to GPUs.
