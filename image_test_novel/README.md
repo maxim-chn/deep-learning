@@ -1,0 +1,1 @@
+Storage for test images that are novel.

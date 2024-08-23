@@ -49,11 +49,8 @@ def pair_original_distorted(source_folder):
         width, height = image.size
         if width < MODEL_INPUT["width"] or height < MODEL_INPUT["height"]:
           continue
-        original = image.copy()
-        original.thumbnail((MODEL_INPUT["width"], MODEL_INPUT["height"]))
-        distorted = image.copy()
-        distorted = distorted.filter(ImageFilter.BLUR)
-        distorted.thumbnail((MODEL_INPUT["width"], MODEL_INPUT["height"]))
+        original = image.copy().resize((MODEL_INPUT["width"], MODEL_INPUT["height"]))
+        distorted = image.copy().filter(ImageFilter.BLUR).resize((MODEL_INPUT["width"], MODEL_INPUT["height"]))
         result.append({
           "expected_output": { "type": "original", "data": convert_image_to_bytes(original) },
           "input": { "type": "distorted", "data": convert_image_to_bytes(distorted) },
@@ -76,10 +73,8 @@ def pair_original_minimized(source_folder):
         width, height = image.size
         if width < MODEL_INPUT["width"] or height < MODEL_INPUT["height"]:
           continue
-        original = image.copy()
-        original.thumbnail((MODEL_INPUT["width"], MODEL_INPUT["height"]))
-        minimized = image.copy()
-        minimized.thumbnail((MODEL_TEST["minimized"]["width"], MODEL_TEST["minimized"]["height"]))
+        original = image.copy().resize((MODEL_INPUT["width"], MODEL_INPUT["height"]))
+        minimized = image.copy().resize((MODEL_TEST["minimized"]["width"], MODEL_TEST["minimized"]["height"]))
         result.append({
           "expected_output": { "type": "original", "data": convert_image_to_bytes(original) },
           "name": f"test_{count}",
@@ -102,10 +97,8 @@ def pair_novel_minimized(source_folder):
         width, height = image.size
         if width < MODEL_TEST["novel"]["width"] or height < MODEL_TEST["novel"]["height"]:
           continue
-        novel = image.copy()
-        novel.thumbnail((MODEL_TEST["novel"]["width"], MODEL_TEST["novel"]["height"]))
-        minimized = image.copy()
-        minimized.thumbnail((MODEL_TEST["minimized"]["width"], MODEL_TEST["minimized"]["height"]))
+        novel = image.copy().resize((MODEL_TEST["novel"]["width"], MODEL_TEST["novel"]["height"]))
+        minimized = image.copy().resize((MODEL_TEST["minimized"]["width"], MODEL_TEST["minimized"]["height"]))
         result.append({
           "expected_output": { "type": "novel", "data": convert_image_to_bytes(novel) },
           "name": f"test_{count}",
@@ -115,6 +108,6 @@ def pair_novel_minimized(source_folder):
   return result
 
 if __name__ == "__main__":
-  upload_images_to_gcs(BUCKETS["preprocessed"]["name"], BUCKETS["preprocessed"]["test"]["original"]["name"], pair_original_minimized(SOURCE_FOLDER))
-  upload_images_to_gcs(BUCKETS["preprocessed"]["name"], BUCKETS["preprocessed"]["test"]["novel"]["name"], pair_novel_minimized(SOURCE_FOLDER))
-  upload_images_to_gcs(BUCKETS["preprocessed"]["name"], BUCKETS["preprocessed"]["test"]["distorted"]["name"], pair_original_distorted(SOURCE_FOLDER))
+  upload_images_to_gcs(BUCKETS["preprocessed"]["name"], BUCKETS["preprocessed"]["test"]["original"]["name"], pair_original_minimized(f"{SOURCE_FOLDER}_original"))
+  upload_images_to_gcs(BUCKETS["preprocessed"]["name"], BUCKETS["preprocessed"]["test"]["novel"]["name"], pair_novel_minimized(f"{SOURCE_FOLDER}_novel"))
+  upload_images_to_gcs(BUCKETS["preprocessed"]["name"], BUCKETS["preprocessed"]["test"]["distorted"]["name"], pair_original_distorted(f"{SOURCE_FOLDER}_distorted"))
