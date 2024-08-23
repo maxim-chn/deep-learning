@@ -1,3 +1,6 @@
+# Project Poster
+![image-architecture](assets/project_poster.png)
+
 # Architecture overview
 ![image-architecture](assets/architecture_overview.png)
 
